@@ -1,0 +1,116 @@
+/* ===== IMPORTATION DES POLICES GOOGLE FONTS ===== */
+/* Poppins : pour les titres (weight 500 & 600) */
+/* Inter : pour le corps de texte (weight 400) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500&display=swap');
+
+/* ===== IMPORTATION TAILWIND CSS v4 ===== */
+@import 'tailwindcss';
+
+/* ===== THÈME TAILWIND v4 - DESIGN TOKENS ===== */
+@theme {
+  /* --- Couleurs personnalisées --- */
+  --color-bg-dark: #222222;
+  --color-bg-light: #F5F5F5;
+  --color-title: #153259;
+  --color-subtitle: #016DFF;
+  --color-accent: #FF6B35;
+  --color-card-dark: #2A2A2A;
+  --color-card-light: #FFFFFF;
+  --color-text-dark: #E0E0E0;
+  --color-text-light: #444444;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-border-light: rgba(0, 0, 0, 0.08);
+
+  /* --- Polices --- */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* --- Arrondis --- */
+  --radius-card: 16px;
+  --radius-button: 12px;
+
+  /* --- Animations --- */
+  --animate-bounce-slow: bounce-slow 2s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+
+  /* --- Breakpoints --- */
+  --breakpoint-xs: 480px;
+}
+
+/* ===== KEYFRAMES ANIMATIONS ===== */
+/* Animation de rebond lent pour l'indicateur de scroll */
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+/* Animation d'apparition vers le haut (pour RevealOnScroll) */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== STYLES DE BASE ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Mode clair (par défaut) --- */
+body {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+/* --- Mode sombre --- */
+body.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* ===== STYLES DE TYPOGRAPHIE ===== */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+/* ===== SCROLLBAR PERSONNALISÉE ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-subtitle);
+  border-radius: 4px;
+}
+
+/* ===== UTILITAIRE GLASSMORPHISM (mode sombre) ===== */
+.glass-card {
+  border: 1px solid var(--color-border-dark);
+  backdrop-filter: blur(10px);
+  background: rgba(42, 42, 42, 0.7);
+}
