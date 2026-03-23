@@ -39,7 +39,7 @@
   <a
     href="#projects"
     class="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white
-      rounded-button font-heading font-medium text-base sm:text-lg
+      rounded-3xl font-heading font-medium text-base sm:text-lg
       hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/25
       transition-all duration-300 hover:-translate-y-0.5"
   >
@@ -47,19 +47,14 @@
   </a>
 
   <!-- Indicateur de scroll animé (bounce infini) -->
-  <div
-    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow"
+  <a
+    href="#stack"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow transition-transform hover:scale-110"
+    aria-label="Aller à la section Stack"
   >
-    <span
-      class="text-xs {$theme === 'dark'
-        ? 'text-text-dark/50'
-        : 'text-text-light/50'}"
-    >
-      {$t.hero.scrollHint}
-    </span>
     <ChevronDown
       size={24}
       class={$theme === "dark" ? "text-subtitle/70" : "text-subtitle"}
     />
-  </div>
+  </a>
 </section>

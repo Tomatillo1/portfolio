@@ -23,7 +23,7 @@
     ];
 </script>
 
-<section id="projects" class="py-20 sm:py-28 px-4 sm:px-6">
+<section id="projects" class="py-10 sm:py-14 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
         <!-- Titre de la section -->
         <div class="text-center mb-16">

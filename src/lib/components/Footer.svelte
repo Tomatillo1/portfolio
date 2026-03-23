@@ -9,39 +9,34 @@
 </script>
 
 <footer
-    class="py-8 px-4 sm:px-6 border-t
+    class="py-6 px-4 sm:px-6 border-t
     {$theme === 'dark' ? 'border-border-dark' : 'border-border-light'}"
 >
     <div
-        class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4"
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-center justify-between gap-8 text-center md:text-left"
     >
-        <!-- Copyright -->
-        <p
-            class="text-sm {$theme === 'dark'
-                ? 'text-text-dark/60'
-                : 'text-text-light/60'}"
-        >
-            {$t.footer.rights}
-        </p>
+        <!-- Info à gauche -->
+        <div class="flex flex-col gap-1">
+            <h3 class="text-xl font-bold text-subtitle">
+                {$t.footer.title}
+            </h3>
+            <p class="text-sm {$theme === 'dark' ? 'text-text-dark/60' : 'text-text-light/60'}">
+                {$t.footer.subtitle}
+            </p>
+            <p class="text-sm {$theme === 'dark' ? 'text-text-dark/60' : 'text-text-light/60'}">
+                {$t.footer.location}
+            </p>
+        </div>
 
-        <!-- Liens légaux -->
-        <div class="flex gap-6">
-            <button
-                class="text-sm transition-colors duration-200
-          {$theme === 'dark'
-                    ? 'text-text-dark/60 hover:text-subtitle'
-                    : 'text-text-light/60 hover:text-subtitle'}"
+        <!-- Copyright à droite -->
+        <div class="flex flex-col items-center justify-center">
+            <p
+                class="text-sm {$theme === 'dark'
+                    ? 'text-text-dark/60'
+                    : 'text-text-light/60'}"
             >
-                {$t.footer.links.privacy}
-            </button>
-            <button
-                class="text-sm transition-colors duration-200
-          {$theme === 'dark'
-                    ? 'text-text-dark/60 hover:text-subtitle'
-                    : 'text-text-light/60 hover:text-subtitle'}"
-            >
-                {$t.footer.links.terms}
-            </button>
+                {$t.footer.rights}
+            </p>
         </div>
     </div>
 </footer>

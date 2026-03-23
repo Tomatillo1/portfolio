@@ -10,7 +10,7 @@
     import { Briefcase } from "lucide-svelte";
 </script>
 
-<section id="about" class="py-20 sm:py-28 px-4 sm:px-6">
+<section id="about" class="py-10 sm:py-14 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto">
         <!-- Titre de la section -->
         <div class="text-center mb-16">

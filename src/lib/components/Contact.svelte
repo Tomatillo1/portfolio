@@ -1,12 +1,13 @@
 <!--
   Contact.svelte
   Section "Contact" avec un formulaire et des informations de contact.
-  Le formulaire contient : nom, email, sujet, message et bouton d'envoi.
-  Les infos de contact sont affichées à droite sur desktop.
+  Le formulaire utilise une Server Action SvelteKit pour envoyer
+  les emails via Resend (côté serveur uniquement).
 -->
 <script lang="ts">
     import { t } from "$lib/i18n";
     import { theme } from "$lib/stores/theme";
+    import { enhance } from "$app/forms";
     import {
         Mail,
         Phone,
@@ -16,30 +17,13 @@
         Twitter,
     } from "lucide-svelte";
 
-    /** Données du formulaire (liées aux champs input) */
-    let formName = $state("");
-    let formEmail = $state("");
-    let formSubject = $state("");
-    let formMessage = $state("");
-
-    /**
-     * Gérer la soumission du formulaire.
-     * Pour l'instant, affiche les données dans la console.
-     * À remplacer par un appel API réel.
-     */
-    function handleSubmit(e: SubmitEvent) {
-        e.preventDefault();
-        console.log("Form submitted:", {
-            name: formName,
-            email: formEmail,
-            subject: formSubject,
-            message: formMessage,
-        });
-        /* TODO: intégrer un service d'envoi d'email (EmailJS, API custom, etc.) */
-    }
+    /** État du formulaire : loading, succès ou erreur */
+    let loading = $state(false);
+    let success = $state(false);
+    let errorMsg = $state("");
 </script>
 
-<section id="contact" class="py-20 sm:py-28 px-4 sm:px-6">
+<section id="contact" class="py-10 sm:py-14 px-4 sm:px-6">
     <div class="max-w-5xl mx-auto">
         <!-- Titre de la section -->
         <div class="text-center mb-16">
@@ -58,12 +42,47 @@
             <!-- Formulaire de contact (3/5 de la largeur) -->
             <div class="lg:col-span-3">
                 <form
-                    onsubmit={handleSubmit}
+                    method="POST"
+                    action="?/contact"
+                    use:enhance={() => {
+                        /* Avant l'envoi : afficher le loader */
+                        loading = true;
+                        success = false;
+                        errorMsg = "";
+                        return async ({ result, update }) => {
+                            loading = false;
+                            if (result.type === "success") {
+                                success = true;
+                                /* Reset du formulaire après 3 secondes */
+                                setTimeout(() => { success = false; }, 5000);
+                            } else if (result.type === "failure") {
+                                errorMsg = (result.data as any)?.message ?? "Erreur inconnue.";
+                            } else {
+                                errorMsg = "Une erreur est survenue.";
+                            }
+                            /* update() remet à jour le formulaire SvelteKit */
+                            await update({ reset: result.type === "success" });
+                        };
+                    }}
                     class="rounded-card p-6 sm:p-8 space-y-5
             {$theme === 'dark'
                         ? 'glass-card'
                         : 'bg-card-light border border-border-light shadow-sm'}"
                 >
+                    <!-- Message de succès -->
+                    {#if success}
+                        <div class="p-4 rounded-xl bg-green-500/15 text-green-500 text-sm font-medium text-center">
+                            {$t.contact.form.success}
+                        </div>
+                    {/if}
+
+                    <!-- Message d'erreur -->
+                    {#if errorMsg}
+                        <div class="p-4 rounded-xl bg-red-500/15 text-red-500 text-sm font-medium text-center">
+                            {errorMsg}
+                        </div>
+                    {/if}
+
                     <!-- Champ Nom -->
                     <div>
                         <label
@@ -75,9 +94,10 @@
                         </label>
                         <input
                             id="name"
+                            name="name"
                             type="text"
-                            bind:value={formName}
                             required
+                            disabled={loading}
                             class="w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200
                 focus:outline-none focus:ring-2 focus:ring-subtitle/50
                 {$theme === 'dark'
@@ -98,9 +118,10 @@
                         </label>
                         <input
                             id="email"
+                            name="email"
                             type="email"
-                            bind:value={formEmail}
                             required
+                            disabled={loading}
                             class="w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200
                 focus:outline-none focus:ring-2 focus:ring-subtitle/50
                 {$theme === 'dark'
@@ -121,9 +142,10 @@
                         </label>
                         <input
                             id="subject"
+                            name="subject"
                             type="text"
-                            bind:value={formSubject}
                             required
+                            disabled={loading}
                             class="w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200
                 focus:outline-none focus:ring-2 focus:ring-subtitle/50
                 {$theme === 'dark'
@@ -144,8 +166,9 @@
                         </label>
                         <textarea
                             id="message"
-                            bind:value={formMessage}
+                            name="message"
                             required
+                            disabled={loading}
                             rows="5"
                             class="w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 resize-none
                 focus:outline-none focus:ring-2 focus:ring-subtitle/50
@@ -156,14 +179,20 @@
                         ></textarea>
                     </div>
 
-                    <!-- Bouton d'envoi -->
+                    <!-- Bouton d'envoi avec état de chargement -->
                     <button
                         type="submit"
-                        class="w-full py-3.5 bg-accent text-white rounded-button font-heading font-medium
+                        disabled={loading}
+                        class="w-full py-3.5 bg-accent text-white rounded-3xl font-heading font-medium
               hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/25
-              transition-all duration-300 hover:-translate-y-0.5"
+              transition-all duration-300 hover:-translate-y-0.5
+              disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                     >
-                        {$t.contact.form.send}
+                        {#if loading}
+                            {$t.contact.form.sending}
+                        {:else}
+                            {$t.contact.form.send}
+                        {/if}
                     </button>
                 </form>
             </div>

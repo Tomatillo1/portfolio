@@ -17,7 +17,7 @@
   --color-card-dark: #2A2A2A;
   --color-card-light: #FFFFFF;
   --color-text-dark: #E0E0E0;
-  --color-text-light: #444444;
+  --color-text-light: #222222;
   --color-border-dark: rgba(255, 255, 255, 0.1);
   --color-border-light: rgba(0, 0, 0, 0.08);
 
@@ -67,6 +67,8 @@
 /* ===== STYLES DE BASE ===== */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* Offset pour le header fixe */
 }
 
 body {

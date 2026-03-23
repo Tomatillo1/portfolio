@@ -8,6 +8,7 @@
     import { t, locale } from "$lib/i18n";
     import { theme } from "$lib/stores/theme";
     import { Sun, Moon, Menu, X } from "lucide-svelte";
+    import { onMount } from "svelte";
 
     /** État du menu mobile (ouvert/fermé) */
     let mobileMenuOpen = $state(false);
@@ -25,10 +26,34 @@
     /** État de scroll (pour changer le style du header au scroll) */
     let scrolled = $state(false);
 
+    /** État de la section active pour l'underline */
+    let activeSection = $state("");
+
     /** Détecter le scroll pour ajouter un fond au header */
     function handleScroll() {
         scrolled = window.scrollY > 50;
+
+        // Détecter la section active avec getBoundingClientRect pour éviter les soucis d'offsetParent
+        const sections = document.querySelectorAll("section[id]");
+        let current = "";
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            // Si le haut de la section approche le haut de l'écran
+            if (rect.top <= 200) {
+                current = section.getAttribute("id") || "";
+            }
+        });
+
+        if (window.scrollY < 100) {
+            activeSection = "hero";
+        } else if (current) {
+            activeSection = current;
+        }
     }
+
+    onMount(() => {
+        handleScroll();
+    });
 </script>
 
 <!-- Écouter le scroll sur la fenêtre -->
@@ -42,68 +67,97 @@
             : 'bg-bg-light/90 backdrop-blur-md shadow-lg'
         : 'bg-transparent'}"
 >
+    <!-- Nav Structure -->
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 lg:h-20">
-            <!-- Logo / Nom -->
-            <a
-                href="#hero"
-                class="font-heading font-semibold text-xl
-          {$theme === 'dark' ? 'text-white' : 'text-title'}"
-            >
-                Thomas Farkas
-            </a>
-
-            <!-- Navigation desktop (cachée sur mobile) -->
-            <div class="hidden lg:flex items-center gap-8">
-                <!-- Liens de navigation -->
+        <div class="flex items-center h-16 lg:h-20 w-full relative">
+            <!-- Logo / Nom (Left part) -->
+            <div class="flex-shrink-0 z-10">
                 <a
-                    href="/"
-                    class="nav-link {$theme === 'dark'
-                        ? 'text-text-dark hover:text-subtitle'
-                        : 'text-text-light hover:text-subtitle'} transition-colors duration-200"
+                    href="#hero"
+                    class="font-heading font-semibold text-xl
+              {$theme === 'dark' ? 'text-white' : 'text-title'}"
+                >
+                    Thomas Farkas
+                </a>
+            </div>
+
+            <!-- Navigation desktop centrée avec position absolute pure -->
+            <div
+                class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 z-10"
+            >
+                <!-- Liens de navigation avec underline (bleu) uniquement sur active -->
+                <a
+                    href="#hero"
+                    class="nav-link block py-2 border-b-2 transition-all duration-200
+                        {activeSection === 'hero' ||
+                    (activeSection === '' && scrolled === false)
+                        ? 'border-subtitle text-subtitle'
+                        : 'border-transparent ' +
+                          ($theme === 'dark'
+                              ? 'text-text-dark hover:text-subtitle'
+                              : 'text-text-light hover:text-subtitle')}"
                 >
                     {$t.header.home}
                 </a>
                 <a
                     href="#stack"
-                    class="nav-link {$theme === 'dark'
-                        ? 'text-text-dark hover:text-subtitle'
-                        : 'text-text-light hover:text-subtitle'} transition-colors duration-200"
+                    class="nav-link block py-2 border-b-2 transition-all duration-200
+                        {activeSection === 'stack'
+                        ? 'border-subtitle text-subtitle'
+                        : 'border-transparent ' +
+                          ($theme === 'dark'
+                              ? 'text-text-dark hover:text-subtitle'
+                              : 'text-text-light hover:text-subtitle')}"
                 >
                     {$t.header.stack}
                 </a>
                 <a
                     href="#projects"
-                    class="nav-link {$theme === 'dark'
-                        ? 'text-text-dark hover:text-subtitle'
-                        : 'text-text-light hover:text-subtitle'} transition-colors duration-200"
+                    class="nav-link block py-2 border-b-2 transition-all duration-200
+                        {activeSection === 'projects'
+                        ? 'border-subtitle text-subtitle'
+                        : 'border-transparent ' +
+                          ($theme === 'dark'
+                              ? 'text-text-dark hover:text-subtitle'
+                              : 'text-text-light hover:text-subtitle')}"
                 >
                     {$t.header.projects}
                 </a>
                 <a
                     href="#about"
-                    class="nav-link {$theme === 'dark'
-                        ? 'text-text-dark hover:text-subtitle'
-                        : 'text-text-light hover:text-subtitle'} transition-colors duration-200"
+                    class="nav-link block py-2 border-b-2 transition-all duration-200
+                        {activeSection === 'about'
+                        ? 'border-subtitle text-subtitle'
+                        : 'border-transparent ' +
+                          ($theme === 'dark'
+                              ? 'text-text-dark hover:text-subtitle'
+                              : 'text-text-light hover:text-subtitle')}"
                 >
                     {$t.header.about}
                 </a>
                 <a
                     href="#contact"
-                    class="nav-link {$theme === 'dark'
-                        ? 'text-text-dark hover:text-subtitle'
-                        : 'text-text-light hover:text-subtitle'} transition-colors duration-200"
+                    class="nav-link block py-2 border-b-2 transition-all duration-200
+                        {activeSection === 'contact'
+                        ? 'border-subtitle text-subtitle'
+                        : 'border-transparent ' +
+                          ($theme === 'dark'
+                              ? 'text-text-dark hover:text-subtitle'
+                              : 'text-text-light hover:text-subtitle')}"
                 >
                     {$t.header.contact}
                 </a>
+            </div>
 
+            <!-- Toggles et CTA (Right part) -->
+            <div class="hidden lg:flex ml-auto items-center gap-4 z-10">
                 <!-- Toggle langue FR/EN -->
                 <button
                     onclick={() => locale.toggle()}
-                    class="px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200
-            {$theme === 'dark'
-                        ? 'bg-white/10 text-white hover:bg-white/20'
-                        : 'bg-black/5 text-text-light hover:bg-black/10'}"
+                    class="px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-200
+                        {$theme === 'dark'
+                        ? 'text-text-dark hover:bg-white/10 hover:text-white'
+                        : 'text-text-light hover:bg-black/5 hover:text-title'}"
                 >
                     {$locale === "fr" ? "EN" : "FR"}
                 </button>
@@ -111,8 +165,8 @@
                 <!-- Toggle dark/light mode -->
                 <button
                     onclick={() => theme.toggle()}
-                    class="p-2 rounded-lg transition-all duration-200
-            {$theme === 'dark'
+                    class="p-2 rounded-xl transition-all duration-200
+                        {$theme === 'dark'
                         ? 'text-yellow-400 hover:bg-white/10'
                         : 'text-title hover:bg-black/5'}"
                     aria-label="Toggle theme"
@@ -127,19 +181,19 @@
                 <!-- Bouton CTA Contact -->
                 <a
                     href="#contact"
-                    class="px-5 py-2.5 bg-accent text-white rounded-button font-medium text-sm
-            hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25"
+                    class="px-5 py-2.5 bg-accent text-white rounded-3xl font-medium text-sm
+                        hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25"
                 >
                     {$t.header.cta}
                 </a>
             </div>
 
             <!-- Bouton hamburger mobile -->
-            <div class="flex items-center gap-3 lg:hidden">
+            <div class="flex items-center gap-3 lg:hidden z-10 ml-auto">
                 <!-- Toggle thème mobile -->
                 <button
                     onclick={() => theme.toggle()}
-                    class="p-2 rounded-lg {$theme === 'dark'
+                    class="p-2 rounded-xl {$theme === 'dark'
                         ? 'text-yellow-400'
                         : 'text-title'}"
                     aria-label="Toggle theme"
@@ -154,7 +208,7 @@
                 <!-- Bouton menu -->
                 <button
                     onclick={toggleMobileMenu}
-                    class="p-2 rounded-lg {$theme === 'dark'
+                    class="p-2 rounded-xl {$theme === 'dark'
                         ? 'text-white'
                         : 'text-title'}"
                     aria-label="Toggle menu"
@@ -181,7 +235,7 @@
                 <a
                     href="#stack"
                     onclick={closeMobileMenu}
-                    class="py-2 px-4 rounded-lg transition-colors {$theme ===
+                    class="py-2 px-4 rounded-xl transition-colors {$theme ===
                     'dark'
                         ? 'text-text-dark hover:bg-white/10'
                         : 'text-text-light hover:bg-black/5'}"
@@ -191,7 +245,7 @@
                 <a
                     href="#projects"
                     onclick={closeMobileMenu}
-                    class="py-2 px-4 rounded-lg transition-colors {$theme ===
+                    class="py-2 px-4 rounded-xl transition-colors {$theme ===
                     'dark'
                         ? 'text-text-dark hover:bg-white/10'
                         : 'text-text-light hover:bg-black/5'}"
@@ -201,7 +255,7 @@
                 <a
                     href="#about"
                     onclick={closeMobileMenu}
-                    class="py-2 px-4 rounded-lg transition-colors {$theme ===
+                    class="py-2 px-4 rounded-xl transition-colors {$theme ===
                     'dark'
                         ? 'text-text-dark hover:bg-white/10'
                         : 'text-text-light hover:bg-black/5'}"
@@ -211,7 +265,7 @@
                 <a
                     href="#contact"
                     onclick={closeMobileMenu}
-                    class="py-2 px-4 rounded-lg transition-colors {$theme ===
+                    class="py-2 px-4 rounded-xl transition-colors {$theme ===
                     'dark'
                         ? 'text-text-dark hover:bg-white/10'
                         : 'text-text-light hover:bg-black/5'}"
@@ -222,10 +276,10 @@
                 <!-- Toggle langue mobile -->
                 <button
                     onclick={() => locale.toggle()}
-                    class="py-2 px-4 rounded-lg text-left transition-colors
+                    class="py-2 px-4 rounded-xl text-left transition-colors
             {$theme === 'dark'
-                        ? 'text-text-dark hover:bg-white/10'
-                        : 'text-text-light hover:bg-black/5'}"
+                        ? 'text-text-dark hover:bg-white/10 hover:text-white'
+                        : 'text-text-light hover:bg-black/5 hover:text-title'}"
                 >
                     {$locale === "fr" ? "🇬🇧 English" : "🇫🇷 Français"}
                 </button>
@@ -234,7 +288,7 @@
                 <a
                     href="#contact"
                     onclick={closeMobileMenu}
-                    class="mt-2 px-5 py-3 bg-accent text-white rounded-button font-medium text-center
+                    class="mt-2 px-5 py-3 bg-accent text-white rounded-xl font-medium text-center
             hover:bg-accent/90 transition-all duration-200"
                 >
                     {$t.header.cta}

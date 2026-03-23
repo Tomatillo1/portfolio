@@ -170,6 +170,9 @@ export const en: Translations = {
       subject: "Subject",
       message: "Your message",
       send: "Send message",
+      sending: "Sending...",
+      success: "Message sent successfully! I'll get back to you soon.",
+      error: "An error occurred. Please try again later.",
     },
     info: {
       title: "Contact information",
@@ -184,10 +187,9 @@ export const en: Translations = {
 
   /* ===== FOOTER ===== */
   footer: {
-    rights: "© 2024 Your Name. All rights reserved.",
-    links: {
-      privacy: "Privacy Policy",
-      terms: "Terms of Use",
-    },
+    title: "Thomas Farkas",
+    subtitle: "Webmarketing Apprentice & Tech Enthusiast",
+    location: "Based in Toulouse",
+    rights: "© 2026 Thomas Farkas. All rights reserved.",
   },
 };

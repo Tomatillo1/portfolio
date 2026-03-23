@@ -169,6 +169,9 @@ export const fr = {
       subject: "Sujet",
       message: "Votre message",
       send: "Envoyer le message",
+      sending: "Envoi en cours...",
+      success: "Message envoyé avec succès ! Je vous répondrai rapidement.",
+      error: "Une erreur est survenue. Réessayez plus tard.",
     },
     info: {
       title: "Informations de contact",
@@ -183,11 +186,10 @@ export const fr = {
 
   /* ===== FOOTER ===== */
   footer: {
-    rights: "© 2024 Votre Nom. Tous droits réservés.",
-    links: {
-      privacy: "Politique de confidentialité",
-      terms: "Conditions d'utilisation",
-    },
+    title: "Thomas Farkas",
+    subtitle: "Alternant Webmarketing & Passionné de Tech",
+    location: "Basé à Toulouse",
+    rights: "© 2026 Thomas Farkas. Tous droits réservés.",
   },
 };
 
