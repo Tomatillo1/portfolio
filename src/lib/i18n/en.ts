@@ -19,10 +19,10 @@ export const en: Translations = {
 
   /* ===== SECTION HERO ===== */
   hero: {
-    name: "Your Name",
-    subtitle: "Digital Experience Creator",
+    name: "Thomas Farkas",
+    subtitle: "Digital Marketing & AI",
     description:
-      "Passionate developer crafting modern and high-performance interfaces. I turn your ideas into memorable web experiences using the latest technologies.",
+      "Passionate about webmarketing and new technologies, I help businesses with their digital transition by combining strategy and innovation.",
     cta: "Discover my projects",
     scrollHint: "Scroll down",
   },

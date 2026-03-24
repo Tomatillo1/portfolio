@@ -13,6 +13,7 @@
     import About from "$lib/components/About.svelte";
     import Interests from "$lib/components/Interests.svelte";
     import Contact from "$lib/components/Contact.svelte";
+    import ScrollToTop from "$lib/components/ScrollToTop.svelte";
 </script>
 
 <!-- SEO : titre et description de la page -->
@@ -47,3 +48,6 @@
 <RevealOnScroll>
     <Contact />
 </RevealOnScroll>
+
+<!-- Bouton pour remonter en haut de la page une fois la section Hero passée -->
+<ScrollToTop />

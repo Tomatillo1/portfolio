@@ -17,10 +17,10 @@ export const fr = {
 
   /* ===== SECTION HERO ===== */
   hero: {
-    name: "Votre Nom",
-    subtitle: "Créateur d'expériences digitales",
+    name: "Thomas Farkas",
+    subtitle: "Digital Marketing & IA",
     description:
-      "Développeur passionné, je conçois des interfaces modernes et performantes. Je transforme vos idées en expériences web mémorables avec les dernières technologies.",
+      "Passionné par le webmarketing et les nouvelles technologies, j'accompagne les entreprises dans leur transition digitale en alliant stratégie et innovation.",
     cta: "Découvrir mes projets",
     scrollHint: "Défiler vers le bas",
   },
