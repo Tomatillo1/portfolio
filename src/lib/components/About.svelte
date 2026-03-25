@@ -99,13 +99,27 @@
 
                             <!-- Description -->
                             <p
-                                class="text-sm leading-relaxed
-                {$theme === 'dark'
-                                    ? 'text-text-dark/70'
-                                    : 'text-text-light/70'}"
+                                class="text-sm leading-relaxed mb-2 {$theme ===
+                                'dark'
+                                    ? 'text-text-dark'
+                                    : 'text-text-light'}"
                             >
-                                {exp.description}
+                                {$t.about.missions}
                             </p>
+                            {#each exp.description as mission}
+                                <ul
+                                    class="list-disc ml-5 space-y-2 marker:text-title"
+                                >
+                                    <li
+                                        class="text-sm leading-relaxed
+                {$theme === 'dark'
+                                            ? 'text-text-dark/70'
+                                            : 'text-text-light/70'}"
+                                    >
+                                        {mission}
+                                    </li>
+                                </ul>
+                            {/each}
                         </div>
                     </div>
                 </div>
