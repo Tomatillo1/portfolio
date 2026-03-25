@@ -40,10 +40,16 @@
         <!-- Titre de la section -->
         <div class="text-center mb-16">
             <h2
-                class="font-heading font-semibold text-3xl sm:text-4xl text-title mb-3"
+                class="font-heading font-semibold text-3xl sm:text-4xl mb-3 {$theme ===
+                'dark'
+                    ? 'text-text-dark'
+                    : 'text-title'}"
             >
                 {$t.interests.title}
             </h2>
+            <p class="text-subtitle font-medium text-base sm:text-lg">
+                {$t.interests.subtitle}
+            </p>
         </div>
 
         <!-- Grille des centres d'intérêt -->
@@ -60,7 +66,7 @@
                         : 'bg-card-light border border-border-light shadow-sm hover:shadow-lg'}"
                 >
                     <!-- Icône du centre d'intérêt -->
-                    <div class="text-subtitle">
+                    <div class="text-accent">
                         <IconComponent size={28} />
                     </div>
                     <!-- Label -->

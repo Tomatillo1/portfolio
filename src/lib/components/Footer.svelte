@@ -20,10 +20,18 @@
             <h3 class="text-xl font-bold text-subtitle">
                 {$t.footer.title}
             </h3>
-            <p class="text-sm {$theme === 'dark' ? 'text-text-dark/60' : 'text-text-light/60'}">
+            <p
+                class="text-sm {$theme === 'dark'
+                    ? 'text-text-dark/80'
+                    : 'text-text-light/80'}"
+            >
                 {$t.footer.subtitle}
             </p>
-            <p class="text-sm {$theme === 'dark' ? 'text-text-dark/60' : 'text-text-light/60'}">
+            <p
+                class="text-sm {$theme === 'dark'
+                    ? 'text-text-dark/80'
+                    : 'text-text-light/80'}"
+            >
                 {$t.footer.location}
             </p>
         </div>
@@ -32,8 +40,8 @@
         <div class="flex flex-col items-center justify-center">
             <p
                 class="text-sm {$theme === 'dark'
-                    ? 'text-text-dark/60'
-                    : 'text-text-light/60'}"
+                    ? 'text-text-dark/80'
+                    : 'text-text-light/80'}"
             >
                 {$t.footer.rights}
             </p>

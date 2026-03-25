@@ -40,7 +40,10 @@
         <!-- Titre de la section -->
         <div class="text-center mb-16">
             <h2
-                class="font-heading font-semibold text-3xl sm:text-4xl text-title mb-3"
+                class="font-heading font-semibold text-3xl sm:text-4xl mb-3 {$theme ===
+                'dark'
+                    ? 'text-text-dark'
+                    : 'text-title'}"
             >
                 {$t.stack.title}
             </h2>
@@ -78,10 +81,10 @@
                     <div class="flex flex-wrap gap-2">
                         {#each category.items as item}
                             <span
-                                class="text-xs px-3 py-1.5 rounded-full border transition-colors duration-200
+                                class="text-xs px-3 py-1.5 rounded-full
                   {$theme === 'dark'
-                                    ? 'border-border-dark text-text-dark/80 hover:border-subtitle/40 hover:text-subtitle'
-                                    : 'border-border-light text-text-light/70 hover:border-subtitle/40 hover:text-subtitle'}"
+                                    ? 'bg-subtitle/15 text-subtitle'
+                                    : 'bg-subtitle/10 text-subtitle'}"
                             >
                                 {item}
                             </span>

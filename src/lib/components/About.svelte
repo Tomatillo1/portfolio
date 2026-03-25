@@ -15,7 +15,10 @@
         <!-- Titre de la section -->
         <div class="text-center mb-16">
             <h2
-                class="font-heading font-semibold text-3xl sm:text-4xl text-title mb-3"
+                class="font-heading font-semibold text-3xl sm:text-4xl mb-3 {$theme ===
+                'dark'
+                    ? 'text-text-dark'
+                    : 'text-title'}"
             >
                 {$t.about.title}
             </h2>
@@ -59,7 +62,7 @@
                             <div class="flex items-center gap-3 mb-3">
                                 <Briefcase
                                     size={18}
-                                    class="text-subtitle flex-shrink-0"
+                                    class="text-subtitle shrink-0"
                                 />
                                 <span
                                     class="text-subtitle font-heading font-semibold text-sm"
@@ -80,18 +83,8 @@
                                 {exp.company}
                             </p>
 
-                            <!-- Description -->
-                            <p
-                                class="text-sm leading-relaxed mb-4
-                {$theme === 'dark'
-                                    ? 'text-text-dark/70'
-                                    : 'text-text-light/70'}"
-                            >
-                                {exp.description}
-                            </p>
-
                             <!-- Compétences utilisées -->
-                            <div class="flex flex-wrap gap-2">
+                            <div class="flex flex-wrap gap-2 mb-4">
                                 {#each exp.skills as skill}
                                     <span
                                         class="text-xs px-2.5 py-1 rounded-full
@@ -103,6 +96,16 @@
                                     </span>
                                 {/each}
                             </div>
+
+                            <!-- Description -->
+                            <p
+                                class="text-sm leading-relaxed
+                {$theme === 'dark'
+                                    ? 'text-text-dark/70'
+                                    : 'text-text-light/70'}"
+                            >
+                                {exp.description}
+                            </p>
                         </div>
                     </div>
                 </div>

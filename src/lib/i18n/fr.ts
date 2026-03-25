@@ -149,6 +149,7 @@ export const fr = {
   /* ===== SECTION CENTRES D'INTÉRÊT ===== */
   interests: {
     title: "Centres d'intérêt",
+    subtitle: "Découvrez-moi",
     items: [
       { name: "Technologie", icon: "Monitor" },
       { name: "Photographie", icon: "Camera" },

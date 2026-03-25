@@ -21,7 +21,10 @@
         <!-- Titre de la section -->
         <div class="text-center mb-16">
             <h2
-                class="font-heading font-semibold text-3xl sm:text-4xl text-title mb-3"
+                class="font-heading font-semibold text-3xl sm:text-4xl mb-3 {$theme ===
+                'dark'
+                    ? 'text-text-dark'
+                    : 'text-title'}"
             >
                 {$t.contact.title}
             </h2>
@@ -320,14 +323,14 @@
                             class="p-3 rounded-xl transition-all duration-200
                 {$theme === 'dark'
                                 ? 'bg-white/5 hover:bg-subtitle/20 text-text-dark hover:text-subtitle'
-                                : 'bg-black/5 hover:bg-subtitle/10 text-text-light hover:text-subtitle'}"
+                                : 'bg-subtitle/10 text-subtitle hover:bg-subtitle hover:text-text-dark'}"
                             aria-label="GitHub"
                         >
                             <svg
                                 role="img"
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="w-[22px] h-[22px] fill-current"
+                                class="w-5.5 h-5.5 fill-current"
                                 aria-hidden="true"
                                 fill="currentColor"
                                 ><path
@@ -343,14 +346,14 @@
                             class="p-3 rounded-xl transition-all duration-200
                 {$theme === 'dark'
                                 ? 'bg-white/5 hover:bg-subtitle/20 text-text-dark hover:text-subtitle'
-                                : 'bg-black/5 hover:bg-subtitle/10 text-text-light hover:text-subtitle'}"
+                                : 'bg-subtitle/10 text-subtitle hover:bg-subtitle hover:text-text-dark'}"
                             aria-label="LinkedIn"
                         >
                             <svg
                                 role="img"
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="w-[22px] h-[22px] fill-current"
+                                class="w-5.5 h-5.5 fill-current"
                                 aria-hidden="true"
                                 fill="currentColor"
                                 ><path
@@ -366,14 +369,14 @@
                             class="p-3 rounded-xl transition-all duration-200
                 {$theme === 'dark'
                                 ? 'bg-white/5 hover:bg-subtitle/20 text-text-dark hover:text-subtitle'
-                                : 'bg-black/5 hover:bg-subtitle/10 text-text-light hover:text-subtitle'}"
+                                : 'bg-subtitle/10 text-subtitle hover:bg-subtitle hover:text-text-dark'}"
                             aria-label="Twitter"
                         >
                             <svg
                                 role="img"
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="w-[22px] h-[22px] fill-current"
+                                class="w-5.5 h-5.5 fill-current"
                                 aria-hidden="true"
                                 fill="currentColor"
                                 ><path

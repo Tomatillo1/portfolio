@@ -71,7 +71,7 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center h-16 lg:h-20 w-full relative">
             <!-- Logo / Nom (Left part) -->
-            <div class="flex-shrink-0 z-10">
+            <div class="shrink-0 z-10">
                 <a
                     href="#hero"
                     class="font-heading font-semibold text-xl
@@ -156,8 +156,8 @@
                     onclick={() => locale.toggle()}
                     class="px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-200
                         {$theme === 'dark'
-                        ? 'text-text-dark hover:bg-white/10 hover:text-white'
-                        : 'text-text-light hover:bg-black/5 hover:text-title'}"
+                        ? 'text-text-dark hover:bg-subtitle/10 hover:text-subtitle'
+                        : 'text-text-light hover:bg-subtitle/10 hover:text-subtitle'}"
                 >
                     {$locale === "fr" ? "EN" : "FR"}
                 </button>
@@ -168,7 +168,7 @@
                     class="p-2 rounded-xl transition-all duration-200
                         {$theme === 'dark'
                         ? 'text-yellow-400 hover:bg-white/10'
-                        : 'text-title hover:bg-black/5'}"
+                        : 'text-text-light hover:bg-subtitle/10 hover:text-subtitle'}"
                     aria-label="Toggle theme"
                 >
                     {#if $theme === "dark"}
@@ -178,9 +178,11 @@
                     {/if}
                 </button>
 
-                <!-- Bouton CTA Contact -->
+                <!-- Bouton CTA CV -->
                 <a
-                    href="#contact"
+                    href="/cv_Thomas_Farkas.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="px-5 py-2.5 bg-accent text-white rounded-3xl font-medium text-sm
                         hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25"
                 >

@@ -28,7 +28,10 @@
         <!-- Titre de la section -->
         <div class="text-center mb-16">
             <h2
-                class="font-heading font-semibold text-3xl sm:text-4xl text-title mb-3"
+                class="font-heading font-semibold text-3xl sm:text-4xl mb-3 {$theme ===
+                'dark'
+                    ? 'text-text-dark'
+                    : 'text-title'}"
             >
                 {$t.projects.title}
             </h2>
@@ -77,16 +80,8 @@
                             {project.title}
                         </h3>
 
-                        <!-- Description -->
-                        <p
-                            class="text-sm leading-relaxed mb-4
-              {$theme === 'dark' ? 'text-text-dark/70' : 'text-text-light/70'}"
-                        >
-                            {project.description}
-                        </p>
-
                         <!-- Tags de technologies -->
-                        <div class="flex flex-wrap gap-2">
+                        <div class="flex flex-wrap gap-2 mb-4">
                             {#each project.tags as tag}
                                 <span
                                     class="text-xs px-3 py-1 rounded-full font-medium
@@ -98,6 +93,14 @@
                                 </span>
                             {/each}
                         </div>
+
+                        <!-- Description -->
+                        <p
+                            class="text-sm leading-relaxed
+              {$theme === 'dark' ? 'text-text-dark/70' : 'text-text-light/70'}"
+                        >
+                            {project.description}
+                        </p>
                     </div>
                 </a>
             {/each}

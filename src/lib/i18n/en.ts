@@ -150,6 +150,7 @@ export const en: Translations = {
   /* ===== SECTION INTERESTS ===== */
   interests: {
     title: "Interests",
+    subtitle: "Discover me",
     items: [
       { name: "Technology", icon: "Monitor" },
       { name: "Photography", icon: "Camera" },
