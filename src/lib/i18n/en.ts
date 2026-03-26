@@ -29,7 +29,7 @@ export const en: Translations = {
 
   /* ===== SECTION STACK TECHNIQUE ===== */
   stack: {
-    title: "Technicals skills",
+    title: "Technical skills",
     subtitle: "My tools and technologies",
     categories: [
       {
@@ -340,7 +340,7 @@ export const en: Translations = {
     info: {
       title: "Contact information",
       email: "farkasthomas2003@gmail.com",
-      phone: "+33 6 12 34 56 78",
+      phone: "+33 6 88 44 20 05",
       location: "Toulouse, France",
     },
     social: {

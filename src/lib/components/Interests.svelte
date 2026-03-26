@@ -20,7 +20,7 @@
      * Map des icônes pour les centres d'intérêt.
      * Associe le nom d'icône défini dans les traductions au composant Lucide.
      */
-    const iconComponents: Record<string, Component> = {
+    const iconComponents: Record<string, any> = {
         ChessKnight,
         ToyBrick,
         Telescope,
