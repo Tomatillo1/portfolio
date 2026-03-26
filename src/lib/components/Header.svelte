@@ -301,7 +301,9 @@
 
                 <!-- CTA mobile -->
                 <a
-                    href="#contact"
+                    href="/cv_Thomas_Farkas.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onclick={closeMobileMenu}
                     class="mt-2 px-5 py-3 bg-accent text-white rounded-xl font-medium text-center
             hover:bg-accent/90 transition-all duration-200"
