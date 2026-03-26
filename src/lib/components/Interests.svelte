@@ -7,11 +7,11 @@
     import { t } from "$lib/i18n";
     import { theme } from "$lib/stores/theme";
     import {
-        Monitor,
-        Camera,
+        ChessKnight,
+        ToyBrick,
+        Telescope,
         Plane,
-        Music,
-        Dumbbell,
+        History,
         BookOpen,
     } from "lucide-svelte";
     import type { Component } from "svelte";
@@ -21,17 +21,17 @@
      * Associe le nom d'icône défini dans les traductions au composant Lucide.
      */
     const iconComponents: Record<string, Component> = {
-        Monitor,
-        Camera,
+        ChessKnight,
+        ToyBrick,
+        Telescope,
         Plane,
-        Music,
-        Dumbbell,
+        History,
         BookOpen,
     };
 
     /** Récupérer le composant icône pour un intérêt donné */
     function getIcon(iconName: string): Component {
-        return iconComponents[iconName] || Monitor;
+        return iconComponents[iconName] || ChessKnight;
     }
 </script>
 

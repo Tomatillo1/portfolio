@@ -10,7 +10,7 @@ export const fr = {
     home: "Accueil",
     stack: "Compétences",
     projects: "Projets",
-    about: "À propos",
+    about: "Expériences",
     contact: "Contact",
     cta: "Télécharger CV",
   },
@@ -27,7 +27,7 @@ export const fr = {
 
   /* ===== SECTION STACK TECHNIQUE ===== */
   stack: {
-    title: "Compétences Technique",
+    title: "Compétences Techniques",
     subtitle: "Mes outils et technologies",
     categories: [
       {
@@ -53,6 +53,7 @@ export const fr = {
           "SvelteKit",
           "Supabase",
           "Github",
+          "PWA (Progressive Web App)",
         ],
       },
       {
@@ -114,48 +115,80 @@ export const fr = {
     title: "Projets",
     subtitle: "Découvrez mes dernières réalisations",
     viewProject: "Voir le projet",
+    tasks: "Mes missions : ",
     items: [
       {
-        title: "Projet Alpha",
+        logo: "/logos/logo_ff_conseils.jpg",
+        title: "FF Conseils",
         description:
-          "Application web moderne avec une interface utilisateur intuitive et réactive.",
-        tags: ["React", "Node.js", "MongoDB"],
-        link: "#",
+          "Création et lancement d'une activité de formation en politiques publiques pour les élus et collectivités.",
+        tags: [
+          "Marketing",
+          "Branding",
+          "vO",
+          "N8N",
+          "SEO",
+          "Supabase",
+          "Hébergement",
+          "Business Plan",
+          "Vibe Coding",
+          "IA",
+        ],
+        missions: [
+          "Stratégie Business : Étude de marché, définition de l'offre et du modèle économique (Business Plan).",
+          "Identité de Marque : Création complète du branding, de la charte graphique et du plan de communication.",
+          "Digital & Opérationnel : Développement du site vitrine, SEO, stratégie marketing Inbound/Outbound et mise en place d'automatisations de gestion.",
+          "Pilotage : Audit initial et préconisations stratégiques sur 2 ans.",
+        ],
       },
       {
-        title: "Projet Beta",
+        logo: "/logos/logo_mylego.jpg",
+        title: "MyLego",
         description:
-          "Plateforme e-commerce complète avec système de paiement intégré.",
-        tags: ["Svelte", "Stripe", "PostgreSQL"],
-        link: "#",
+          "Création d'une plateforme (PWA) de gestion de collection LEGO pour pallier l'absence d'outil officiel.",
+        tags: [
+          "SvelteKit",
+          "Tailwind CSS",
+          "HTML",
+          "Supabase",
+          "v0",
+          "N8N",
+          "Newsletter",
+          "Agentic AI",
+          "Vercel",
+          "Scraping",
+          "Github",
+        ],
+        missions: [
+          "Stack Technique : Développement avec SvelteKit, Tailwind CSS et Supabase (Authentification & DB).",
+          "Data Engineering : Création de scripts JS pour le scraping de données (fiches produits et dates de retrait).",
+          "Automation (n8n) : Workflow complexe de synchronisation mensuelle (Scraping > Google Sheets > Supabase) avec gestion des doublons et backups.",
+          "IA Agentic : Intégration d'un agent IA pour générer automatiquement des descriptions courtes et une newsletter sur les nouveautés.",
+        ],
       },
       {
-        title: "Projet Gamma",
+        logo: "/logos/logo_sparks.jpg",
+        title: "Sparks",
         description:
-          "Dashboard d'analytics temps réel avec visualisations de données interactives.",
-        tags: ["TypeScript", "D3.js", "Firebase"],
-        link: "#",
-      },
-      {
-        title: "Projet Delta",
-        description:
-          "Application mobile cross-platform pour la gestion de tâches.",
-        tags: ["React Native", "Redux", "Express"],
-        link: "#",
-      },
-      {
-        title: "Projet Epsilon",
-        description:
-          "API REST robuste avec documentation Swagger et tests automatisés.",
-        tags: ["Node.js", "Jest", "Swagger"],
-        link: "#",
-      },
-      {
-        title: "Projet Zeta",
-        description:
-          "Portfolio créatif avec animations avancées et mode sombre.",
-        tags: ["SvelteKit", "Tailwind", "Framer"],
-        link: "#",
+          "Start-up spécialisée dans l’analyse neuromotrice et la performance (Sport & Entreprise).",
+        tags: [
+          "Rebranding",
+          "Marketing",
+          "Communication",
+          "UX/UI",
+          "PWA",
+          "Growth",
+          "Business Plan",
+          "Audit",
+          "Gestion de projet",
+        ],
+        missions: [
+          "Audit & Rebranding : Refonte totale de la stratégie de marque pour l'entité mère et ses gammes (Motion/Pulse).",
+          "Marketing Stratégique : Analyse PESTEL/SWOT, définition d'objectifs SMART et plan de rentabilité.",
+          "Product Design : Conception d'une PWA (Progressive Web App) : wireframing, prototypage et démo fonctionnelle codée.",
+          "Growth : Stratégie de contenu Inbound et plan de marketing opérationnel pour levée de fonds.",
+          "Gestion de projet: Audit initial, pilotage, et coordination complète du projet.",
+        ],
       },
     ],
   },
@@ -181,7 +214,7 @@ export const fr = {
         skills: [
           "Marketing",
           "Branding",
-          "UI/UX (vO)",
+          "UI/UX",
           "Antigravity",
           "SvelteKit",
           "Supabase",
@@ -281,11 +314,11 @@ export const fr = {
     title: "Centres d'intérêt",
     subtitle: "Découvrez-moi",
     items: [
-      { name: "Technologie", icon: "Monitor" },
-      { name: "Photographie", icon: "Camera" },
-      { name: "Voyage", icon: "Plane" },
-      { name: "Musique", icon: "Music" },
-      { name: "Sport", icon: "Dumbbell" },
+      { name: "Échecs", icon: "ChessKnight" },
+      { name: "Legos", icon: "ToyBrick" },
+      { name: "Astronomie", icon: "Telescope" },
+      { name: "Voyager", icon: "Plane" },
+      { name: "Histoire", icon: "History" },
       { name: "Lecture", icon: "BookOpen" },
     ],
   },

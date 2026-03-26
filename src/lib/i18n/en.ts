@@ -12,7 +12,7 @@ export const en: Translations = {
     home: "Home",
     stack: "Skills",
     projects: "Projects",
-    about: "About",
+    about: "Experiences",
     contact: "Contact",
     cta: "Download CV",
   },
@@ -55,6 +55,7 @@ export const en: Translations = {
           "SvelteKit",
           "Supabase",
           "Github",
+          "PWA (Progressive Web App)",
         ],
       },
       {
@@ -116,47 +117,80 @@ export const en: Translations = {
     title: "Projects",
     subtitle: "Discover my latest work",
     viewProject: "View project",
+    tasks: "My missions: ",
     items: [
       {
-        title: "Project Alpha",
+        logo: "/logos/logo_ff_conseils.jpg",
+        title: "FF Conseils",
         description:
-          "Modern web application with an intuitive and responsive user interface.",
-        tags: ["React", "Node.js", "MongoDB"],
-        link: "#",
+          "Creation and launch of a public policy training activity for elected officials and local authorities.",
+        tags: [
+          "Marketing",
+          "Branding",
+          "vO",
+          "N8N",
+          "SEO",
+          "Supabase",
+          "Cloud Hosting",
+          "Business Plan",
+          "Vibe Coding",
+          "AI",
+        ],
+        missions: [
+          "Business Strategy: Market research, offer definition, and business model development.",
+          "Brand Identity: Full creation of branding, graphic guidelines, and communication plan.",
+          "Digital & Ops: Showcase website development, SEO, Inbound/Outbound strategy, and management automation.",
+          "Steering: Initial audit and 2-year strategic roadmap.",
+        ],
       },
       {
-        title: "Project Beta",
+        logo: "/logos/logo_mylego.jpg",
+        title: "MyLego",
         description:
-          "Complete e-commerce platform with integrated payment system.",
-        tags: ["Svelte", "Stripe", "PostgreSQL"],
-        link: "#",
+          "Development of a PWA to manage LEGO collections, addressing the lack of official tools.",
+        tags: [
+          "SvelteKit",
+          "Tailwind CSS",
+          "HTML",
+          "Supabase",
+          "v0",
+          "N8N",
+          "Newsletter",
+          "Agentic AI",
+          "Vercel",
+          "Scraping",
+          "Github",
+        ],
+        missions: [
+          "Tech Stack: Developed with SvelteKit, Tailwind CSS, and Supabase (Auth & DB) to master full-stack fundamentals.",
+          "Data Engineering: JS scripts for automated data scraping (product specs and retirement dates).",
+          "Automation (n8n): Complex monthly synchronization workflow (Scraping > Google Sheets > Supabase) with duplicate management and backups.",
+          "Agentic AI: AI agent integration for automated short descriptions and newsletter generation.",
+        ],
       },
       {
-        title: "Project Gamma",
+        logo: "/logos/logo_sparks.jpg",
+        title: "Sparks",
         description:
-          "Real-time analytics dashboard with interactive data visualizations.",
-        tags: ["TypeScript", "D3.js", "Firebase"],
-        link: "#",
-      },
-      {
-        title: "Project Delta",
-        description: "Cross-platform mobile application for task management.",
-        tags: ["React Native", "Redux", "Express"],
-        link: "#",
-      },
-      {
-        title: "Project Epsilon",
-        description:
-          "Robust REST API with Swagger documentation and automated tests.",
-        tags: ["Node.js", "Jest", "Swagger"],
-        link: "#",
-      },
-      {
-        title: "Project Zeta",
-        description:
-          "Creative portfolio with advanced animations and dark mode.",
-        tags: ["SvelteKit", "Tailwind", "Framer"],
-        link: "#",
+          "Startup specializing in neuro-motor analysis and performance for Sports & Corporate sectors.",
+        tags: [
+          "Rebranding",
+          "Marketing",
+          "Communication",
+          "UX/UI",
+          "PWA",
+          "Growth",
+          "Business Plan",
+          "Audit",
+          "Project Management",
+        ],
+        missions: [
+          "Audit & Rebranding: Complete overhaul of the brand strategy for the parent company and its product lines (Motion/Pulse).",
+          "Strategic Marketing: PESTEL/SWOT analysis, SMART objectives, and profitability planning.",
+          "Product Design: PWA (Progressive Web App) design: wireframing, prototyping, and coded functional demo.",
+          "Growth: Inbound content strategy and operational marketing plan for fundraising.",
+          "Project Management: Initial audit, steering, and full project coordination.",
+        ],
       },
     ],
   },
@@ -182,7 +216,7 @@ export const en: Translations = {
         skills: [
           "Marketing",
           "Branding",
-          "UI/UX (vO)",
+          "UI/UX",
           "Antigravity",
           "SvelteKit",
           "Supabase",
@@ -275,6 +309,21 @@ export const en: Translations = {
     ],
   },
 
+  /* ===== SECTION CENTRES D'INTÉRÊT ===== */
+  interests: {
+    title: "Hobbies and interests",
+    subtitle: "Discover me",
+    items: [
+      { name: "Chess", icon: "ChessKnight" },
+      { name: "Legos", icon: "ToyBrick" },
+      { name: "Astronomy", icon: "Telescope" },
+      { name: "Travelling", icon: "Plane" },
+      { name: "History", icon: "History" },
+      { name: "Reading", icon: "BookOpen" },
+    ],
+  },
+
+  /* ===== SECTION CONTACT ===== */
   contact: {
     title: "Contact",
     subtitle: "Let's work together",
@@ -295,7 +344,7 @@ export const en: Translations = {
       location: "Toulouse, France",
     },
     social: {
-      title: "Social media",
+      title: "Social medias",
     },
   },
 

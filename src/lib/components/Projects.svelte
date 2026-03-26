@@ -45,8 +45,7 @@
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
             {#each $t.projects.items as project, i}
-                <a
-                    href={project.link}
+                <div
                     class="group block rounded-card overflow-hidden transition-all duration-300
             hover:-translate-y-2 hover:shadow-2xl
             {$theme === 'dark'
@@ -54,21 +53,13 @@
                         : 'bg-card-light border border-border-light shadow-sm hover:shadow-xl'}"
                 >
                     <!-- Image placeholder avec gradient -->
-                    <div
-                        class="relative h-44 sm:h-48 bg-gradient-to-br {gradients[
-                            i % gradients.length
-                        ]}
-              {$theme === 'dark' ? 'bg-white/5' : 'bg-gray-100'}"
-                    >
-                        <!-- Overlay hover avec icône -->
-                        <div
-                            class="absolute inset-0 flex items-center justify-center opacity-0
-              group-hover:opacity-100 transition-opacity duration-300
-              {$theme === 'dark' ? 'bg-black/30' : 'bg-white/30'}"
-                        >
-                            <ExternalLink size={28} class="text-subtitle" />
-                        </div>
-                    </div>
+                    <img
+                        class="border-b shadow-md glass-card {$theme === 'dark'
+                            ? 'shadow-accent/10'
+                            : 'shadow-subtitle/15'}"
+                        src={project.logo}
+                        alt="{project.title} logo"
+                    />
 
                     <!-- Contenu de la carte -->
                     <div class="p-5 sm:p-6">
@@ -96,13 +87,36 @@
 
                         <!-- Description -->
                         <p
+                            class="text-sm leading-relaxed mb-2 {$theme ===
+                            'dark'
+                                ? 'text-text-dark'
+                                : 'text-text-light'}"
+                        >
+                            {$t.projects.tasks}
+                        </p>
+                        <p
                             class="text-sm leading-relaxed
               {$theme === 'dark' ? 'text-text-dark/70' : 'text-text-light/70'}"
                         >
                             {project.description}
                         </p>
+                        {#each project.missions as mission}
+                            <ul
+                                class="list-disc ml-5 space-y-2 {$theme ===
+                                'dark'
+                                    ? 'marker:text-dark'
+                                    : 'marker:text-title'}"
+                            >
+                                <li
+                                    class="text-sm leading-relaxed
+            {$theme === 'dark' ? 'text-text-dark/70' : 'text-text-light/70'}"
+                                >
+                                    {mission}
+                                </li>
+                            </ul>
+                        {/each}
                     </div>
-                </a>
+                </div>
             {/each}
         </div>
     </div>

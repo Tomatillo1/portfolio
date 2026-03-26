@@ -108,7 +108,10 @@
                             </p>
                             {#each exp.description as mission}
                                 <ul
-                                    class="list-disc ml-5 space-y-2 marker:text-title"
+                                    class="list-disc ml-5 space-y-2 {$theme ===
+                                    'dark'
+                                        ? 'marker:text-dark'
+                                        : 'marker:text-title'}"
                                 >
                                     <li
                                         class="text-sm leading-relaxed
