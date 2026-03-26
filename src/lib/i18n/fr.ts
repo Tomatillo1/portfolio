@@ -208,7 +208,7 @@ export const fr = {
           "Branding : Développement d'identités visuelles et chartes graphiques.",
           "Data & Market : Audits concurrentiels et analyse de performance.",
           "SEO : Optimisation technique et sémantique.",
-          "Automation : Workflows productif.",
+          "Automation : Workflows productifs.",
           "Prompt Engineering : diverses IA.",
         ],
         skills: [
@@ -227,7 +227,7 @@ export const fr = {
       {
         year: "2025 (4 mois)",
         role: "Assistant vente",
-        company: "Dunnes Stores l Irlande",
+        company: "Dunnes Stores - Irlande",
         description: [
           "Mise en pratique de mon anglais.",
           "Mise en rayon, entretien, conseil client et valorisation des produits.",
@@ -245,9 +245,9 @@ export const fr = {
         skills: ["Anglais"],
       },
       {
-        year: "2023 - 2024 (1 an)",
+        year: "2023-2024 (1 an)",
         role: "B3 Alternance : webmarketing",
-        company: "Lécopot l Couiza",
+        company: "Lécopot - Couiza",
         description: [
           "Création de sites e-commerce.",
           "Refonte de sites e-commerce.",
@@ -270,10 +270,10 @@ export const fr = {
       {
         year: "2023 (3 mois)",
         role: "B2 Stage : CMS",
-        company: "Quentin Trompeau l Toulouse",
+        company: "Quentin Trompeau - Toulouse",
         description: [
-          "Création & refonte de site vitrine.",
-          "Création & refonte de site e-commerce.",
+          "Création & refonte de sites vitrine.",
+          "Création & refonte de sites e-commerce.",
           "Maquette UX/UI.",
           "Hébergement web.",
           "Référencement naturel (SEO).",
@@ -291,7 +291,7 @@ export const fr = {
       {
         year: "2022 (2 mois)",
         role: "B1 Stage : Communication",
-        company: "GBC l Toulouse",
+        company: "GBC - Toulouse",
         description: [
           "Rédaction publicitaire : descriptions de services avec les métadonnées.",
           "Création de contenu : réseaux sociaux.",

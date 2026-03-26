@@ -235,6 +235,16 @@
         >
             <div class="px-4 py-6 flex flex-col gap-4">
                 <a
+                    href="/"
+                    onclick={closeMobileMenu}
+                    class="py-2 px-4 rounded-xl transition-colors {$theme ===
+                    'dark'
+                        ? 'text-text-dark hover:bg-white/10'
+                        : 'text-text-light hover:bg-black/5'}"
+                >
+                    {$t.header.home}
+                </a>
+                <a
                     href="#stack"
                     onclick={closeMobileMenu}
                     class="py-2 px-4 rounded-xl transition-colors {$theme ===
@@ -277,7 +287,10 @@
 
                 <!-- Toggle langue mobile -->
                 <button
-                    onclick={() => locale.toggle()}
+                    onclick={() => {
+                        locale.toggle();
+                        closeMobileMenu();
+                    }}
                     class="py-2 px-4 rounded-xl text-left transition-colors
             {$theme === 'dark'
                         ? 'text-text-dark hover:bg-white/10 hover:text-white'

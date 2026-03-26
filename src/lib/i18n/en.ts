@@ -229,7 +229,7 @@ export const en: Translations = {
       {
         year: "2025 (4 mois)",
         role: "Sales Assistant",
-        company: "Dunnes Stores l Ireland",
+        company: "Dunnes Stores - Ireland",
         description: [
           "Professional English immersion.",
           "Inventory management, customer advisory, and product merchandising.",
@@ -247,14 +247,14 @@ export const en: Translations = {
         skills: ["English"],
       },
       {
-        year: "2023 - 2024 (1 an)",
+        year: "2023-2024 (1 an)",
         role: "B3 apprenticeship: webmarketing",
-        company: "Lécopot l Couiza",
+        company: "Lécopot - Couiza",
         description: [
           "Development and redesign of e-commerce platforms.",
           "Digital strategy development: emailing, data analysis, SEO.",
           "Content creation for social media.",
-          "Implementation of inbound marketing strateges",
+          "Implementation of inbound marketing strategies",
         ],
         skills: [
           "Wordpress",
@@ -271,7 +271,7 @@ export const en: Translations = {
       {
         year: "2023 (3 mois)",
         role: "B2 Internship: CMS",
-        company: "Quentin Trompeau l Toulouse",
+        company: "Quentin Trompeau - Toulouse",
         description: [
           "Design and development of showcase and e-commerce websites.",
           "UX/UI Prototyping & Wireframing.",
@@ -291,7 +291,7 @@ export const en: Translations = {
       {
         year: "2022 (2 mois)",
         role: "B1 Internship: Communication",
-        company: "GBC l Toulouse",
+        company: "GBC - Toulouse",
         description: [
           "SEO copywriting: service descriptions and metadata optimization.",
           "Content creation: social medias.",
