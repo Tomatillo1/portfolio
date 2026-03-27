@@ -22,7 +22,7 @@ export const en: Translations = {
     name: "Thomas Farkas",
     subtitle: "Digital Marketing & AI",
     description:
-      "Master's student in Digital Marketing & AI, I merge creativity with technical performance to scale online presence. From SEO strategy to web design, I turn every challenge into a measurable growth lever.",
+      "Master's student in Digital Marketing & AI, I merge creativity with technical performance to scale online presence. From SEO strategy to web design, I turn every challenge into a measurable growth driver.",
     cta: "Discover my projects",
     scrollHint: "Scroll down",
   },
